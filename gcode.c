@@ -3433,9 +3433,9 @@ status_code_t gc_execute_block (char *block)
 
             case MotionMode_CwArc:
             case MotionMode_CcwArc:
-                if(gc_state.modal.feed_mode == FeedMode_UnitsPerRev)
+                if(gc_state.modal.feed_mode == FeedMode_UnitsPerRev){
                     plan_data.condition.units_per_rev = plan_data.spindle.state.synchronized = On;
-
+                }
                 mc_arc(gc_block.values.xyz, &plan_data, gc_state.position, gc_block.values.ijk, gc_block.values.r,
                         plane, gc_parser_flags.arc_is_clockwise ? -gc_block.arc_turns : gc_block.arc_turns);
                 break;
